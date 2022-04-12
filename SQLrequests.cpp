@@ -17,7 +17,7 @@ int InsertMPWD(string id, string pwd)
     sql::PreparedStatement *stmt;
 
     driver = get_mysql_driver_instance();
-    con = driver->connect("51.210.107.231", "botd", "UvtW3h4H73xr8Lfd");
+    con = driver->connect("", "botd", "");
     con->setSchema("botd");
 
     string query = "INSERT INTO nsi_users (id, master_password) VALUES (?,?)";
@@ -38,7 +38,7 @@ bool CheckLogin(string password, string id)
     sql::ResultSet* res;
 
     driver = get_mysql_driver_instance();
-    con = driver->connect("51.210.107.231", "botd", "UvtW3h4H73xr8Lfd");
+    con = driver->connect("", "botd", "");
     con->setSchema("botd");
 
     string query = "SELECT * FROM nsi_users WHERE id = ? AND master_password = ?";
@@ -63,7 +63,7 @@ bool CheckIfRegistered(string id)
     sql::ResultSet* res;
 
     driver = get_mysql_driver_instance();
-    con = driver->connect("51.210.107.231", "botd", "UvtW3h4H73xr8Lfd");
+    con = driver->connect("", "botd", "");
     con->setSchema("botd");
 
     string query = "SELECT * FROM nsi_users WHERE id = ?";
@@ -84,7 +84,7 @@ int InsertPWD(string id, string pwd, string identifier)
     sql::PreparedStatement* stmt;
 
     driver = get_mysql_driver_instance();
-    con = driver->connect("51.210.107.231", "botd", "UvtW3h4H73xr8Lfd");
+    con = driver->connect("", "botd", "");
     con->setSchema("botd");
 
     string query = "INSERT INTO passwords (id, password, identifier) VALUES (?,?,?)";
@@ -106,7 +106,7 @@ bool CheckIfExit(string id, string identifier)
     sql::ResultSet* res;
 
     driver = get_mysql_driver_instance();
-    con = driver->connect("51.210.107.231", "botd", "UvtW3h4H73xr8Lfd");
+    con = driver->connect("", "botd", "");
     con->setSchema("botd");
 
     string query = "SELECT * FROM passwords WHERE id = ? AND identifier = ?";
@@ -128,7 +128,7 @@ int RenamePWD(string id, string identifier, string new_identifier)
     sql::PreparedStatement* stmt;
 
     driver = get_mysql_driver_instance();
-    con = driver->connect("51.210.107.231", "botd", "UvtW3h4H73xr8Lfd");
+    con = driver->connect("", "botd", "");
     con->setSchema("botd");
 
     string query = "UPDATE passwords SET identifier = ? WHERE id = ? AND identifier = ?";
@@ -151,7 +151,7 @@ int GetPasswords(string id)
     sql::ResultSet* res;
     int i = 0;
     driver = get_mysql_driver_instance();
-    con = driver->connect("51.210.107.231", "botd", "UvtW3h4H73xr8Lfd");
+    con = driver->connect("", "botd", "");
     con->setSchema("botd");
 
     string query = "SELECT * FROM passwords WHERE id = ?";
